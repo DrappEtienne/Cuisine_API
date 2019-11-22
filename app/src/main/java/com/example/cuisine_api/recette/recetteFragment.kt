@@ -38,7 +38,7 @@ class recetteFragment : Fragment() {
         val retrofitService = retrofit.create(recetteWebservice::class.java)
         val cocktailService = CocktailService(retrofitService)
 
-        cocktailService.getRandomrecette(
+        recetteService.getRandomrecette(
             { cocktail ->
                 Picasso.get().load(cocktail.images).into(view.cocktailImage)
                 view.cocktailName.text = cocktail.nom
