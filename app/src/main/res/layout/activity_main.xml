@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/flexbox"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        app:flexWrap="wrap"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

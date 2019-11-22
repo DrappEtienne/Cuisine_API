@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="250dp"
-    android:layout_height="150dp"
-    android:orientation="vertical">
+    android:orientation="vertical" android:layout_width="250dp"
+    android:layout_height="100dp">
 
     <com.google.android.material.card.MaterialCardView
         style="@style/Widget.MaterialComponents.CardView"
@@ -14,15 +13,14 @@
 
         <!-- TODO: Update blank fragment layout -->
         <LinearLayout
-            android:id="@+id/flexbox"
-            android:layout_width="178dp"
+            android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/recetteImage"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
                 android:src="@drawable/ic_launcher_foreground" />
 
             <TextView
@@ -33,3 +31,4 @@
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>
+

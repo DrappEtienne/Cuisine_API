@@ -33,7 +33,7 @@ class RecetteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val retrofit = Retrofit
             .Builder()
-            .baseUrl("https://www.thecocktaildb.com")
+            .baseUrl("https://bridge.buddyweb.fr/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val retrofitService = retrofit.create(RecetteWebservice::class.java)
