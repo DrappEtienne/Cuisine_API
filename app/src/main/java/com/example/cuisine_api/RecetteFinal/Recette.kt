@@ -1,6 +1,6 @@
-package com.example.monprojetmobile.recette
+package com.example.cuisine_api.RecetteFinal
 
-data class recette (
+data class Recette(
     val id : Int,
     val nom : String,
     val nombres_personnes: String,
