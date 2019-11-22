@@ -5,9 +5,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import com.example.monprojetmobile.recette.recetteFragment
-import com.example.monprojetmobile.recette.recetteWebservice
-
+import com.example.cuisine_api.RecetteFinal.RecetteFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.recette.*
 
@@ -19,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         val cards = 10
         for (cardIndex in 1..cards) {
-            val fragment = recetteFragment()
+            val fragment = RecetteFragment()
             supportFragmentManager.beginTransaction().add(
                 flexbox.id, fragment
             ).commit()
