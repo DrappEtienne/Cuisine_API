@@ -1,21 +1,22 @@
-package com.example.monprojetmobile.recette
+package com.example.cuisine_api.RecetteFinal
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.monprojetmobile.R
+import com.example.cuisine_api.R
+import com.example.monprojetmobile.recette.recette
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recette.view.*
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class recetteFragment : Fragment() {
+class RecetteFragment : Fragment() {
     companion object {
-        fun newInstance() = recetteFragment()
+        fun newInstance() = RecetteFragment()
     }
-
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -35,13 +36,13 @@ class recetteFragment : Fragment() {
             .baseUrl("https://www.thecocktaildb.com")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        val retrofitService = retrofit.create(recetteWebservice::class.java)
-        val cocktailService = CocktailService(retrofitService)
+        val retrofitService = retrofit.create(RecetteWebservice::class.java)
+        val cocktailService = RecetteService(retrofitService)
 
-        recetteService.getRandomrecette(
+        cocktailService.getRandomRecette(
             { cocktail ->
-                Picasso.get().load(cocktail.images).into(view.cocktailImage)
-                view.cocktailName.text = cocktail.nom
+                Picasso.get().load(recette.images).into(view.recetteImage)
+                view.recetteName.text = cocktail.nom
             }, { error -> TODO() }
         )
     }
