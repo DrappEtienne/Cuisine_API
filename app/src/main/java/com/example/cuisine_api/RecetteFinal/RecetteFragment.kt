@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.cuisine_api.R
-import com.example.monprojetmobile.recette.recette
+import com.example.cuisine_api.RecetteFinal.Recette
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recette.view.*
 
@@ -37,12 +37,15 @@ class RecetteFragment : Fragment() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val retrofitService = retrofit.create(RecetteWebservice::class.java)
-        val cocktailService = RecetteService(retrofitService)
+        val RecetteService = RecetteService(retrofitService)
 
-        cocktailService.getRandomRecette(
-            { cocktail ->
-                Picasso.get().load(recette.images).into(view.recetteImage)
-                view.recetteName.text = cocktail.nom
+        RecetteService.getRandomRecette(
+            { recettes ->
+                for( recette in recettes){
+                    Picasso.get().load(recette.images).into(view.recetteImage)
+                    view.recetteName.text = recette.nom
+            }
+
             }, { error -> TODO() }
         )
     }

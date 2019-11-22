@@ -7,4 +7,6 @@ data class Recette(
     val niveau: String,
     val images: String,
     val video: String
+
 )
+
