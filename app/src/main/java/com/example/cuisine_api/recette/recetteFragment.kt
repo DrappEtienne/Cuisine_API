@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.monprojetmobile.R
+import com.example.cuisine_api.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recette.view.*
 
@@ -38,12 +38,12 @@ class recetteFragment : Fragment() {
         val retrofitService = retrofit.create(recetteWebservice::class.java)
         val cocktailService = CocktailService(retrofitService)
 
-        cocktailService.getRandomrecette(
+        /*cocktailService.getRandomrecette(
             { cocktail ->
                 Picasso.get().load(cocktail.images).into(view.cocktailImage)
                 view.cocktailName.text = cocktail.nom
             }, { error -> TODO() }
-        )
+        )*/
     }
 
 }
