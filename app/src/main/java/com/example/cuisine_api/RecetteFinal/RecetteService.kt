@@ -13,7 +13,7 @@ class RecetteService(
                 response: Response<Array<Recette>>
             ) {
                 val recetteReponse = response.body()
-                onDone(recetteReponse)
+                onDone(recetteReponse!!)
             }
 
             override fun onFailure(call: Call<Array<Recette>>, t: Throwable) {
