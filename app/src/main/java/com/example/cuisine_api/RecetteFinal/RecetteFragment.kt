@@ -38,7 +38,7 @@ class RecetteFragment : Fragment() {
         val recetteString = bundle!!.getString("recette")
         val recette = Gson().fromJson(recetteString,Recette::class.java)
 
-        Picasso.get().load(recette.image).into(view.recetteImage)
+        Picasso.get().load("https://spoonacular.com/recipeImages/"+recette.image).into(view.recetteImage)
         view.recetteName.text = recette.title
 
 
