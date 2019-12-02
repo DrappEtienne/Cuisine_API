@@ -6,17 +6,18 @@ import retrofit2.Response
 class RecetteService(
     private val webservice: RecetteWebservice
 ) {
-    fun getRandomRecette(onDone: (Array<Recette>) -> Unit, onError: (Throwable) -> Unit) {
-        webservice.getRandomrecette().enqueue(object : Callback<Array<Recette>> {
+    fun getRandomRecette(onDone: (RecetteResponse) -> Unit, onError: (Throwable) -> Unit) {
+        webservice.getRandomrecette().enqueue(object : Callback<RecetteResponse> {
             override fun onResponse(
-                call: Call<Array<Recette>>,
-                response: Response<Array<Recette>>
+                call: Call<RecetteResponse>,
+                response: Response<RecetteResponse>
             ) {
-                val recetteReponse = response.body()
-                onDone(recetteReponse!!)
+                val recetteResponse = response.body()
+                val recette: Recette = recetteResponse!!.results[0]
+                onDone(recetteResponse)
             }
 
-            override fun onFailure(call: Call<Array<Recette>>, t: Throwable) {
+            override fun onFailure(call: Call<RecetteResponse>, t: Throwable) {
                 onError(t)
             }
         })

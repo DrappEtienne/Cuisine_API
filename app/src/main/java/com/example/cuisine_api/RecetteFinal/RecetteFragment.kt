@@ -33,19 +33,16 @@ class RecetteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val retrofit = Retrofit
             .Builder()
-            .baseUrl("https://bridge.buddyweb.fr")
+            .baseUrl("https://api.spoonacular.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val retrofitService = retrofit.create(RecetteWebservice::class.java)
-        val RecetteService = RecetteService(retrofitService)
+        val recetteService = RecetteService(retrofitService)
 
-        RecetteService.getRandomRecette(
-            { recettes ->
-                for( recette in recettes){
-                    Picasso.get().load(recette.images).into(view.recetteImage)
-                    view.recetteName.text = recette.nom
-            }
-
+        recetteService.getRandomRecette(
+            { recette ->
+                 Picasso.get().load(recette.image).into(view.recetteImage)
+                 view.recetteName.text = recette.title
             }, { error -> throw error }
         )
     }

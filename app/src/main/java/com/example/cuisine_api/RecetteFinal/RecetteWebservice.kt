@@ -4,7 +4,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface RecetteWebservice{
-    @GET("/api/marmiton/entrees")
-    fun getRandomrecette(): Call<Array<Recette>>
+    @GET("/recipes/search/?apiKey=f1abb0f0bbab4ec49567795017869ca6")
+    fun getRandomrecette(): Call<RecetteResponse>
 }
 
