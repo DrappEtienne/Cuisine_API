@@ -33,7 +33,7 @@ class RecetteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val retrofit = Retrofit
             .Builder()
-            .baseUrl("https://bridge.buddyweb.fr/")
+            .baseUrl("https://bridge.buddyweb.fr")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val retrofitService = retrofit.create(RecetteWebservice::class.java)
@@ -46,7 +46,7 @@ class RecetteFragment : Fragment() {
                     view.recetteName.text = recette.nom
             }
 
-            }, { error -> TODO() }
+            }, { error -> throw error }
         )
     }
 
