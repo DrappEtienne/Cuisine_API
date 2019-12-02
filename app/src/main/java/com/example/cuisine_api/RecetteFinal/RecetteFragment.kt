@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.cuisine_api.R
+import com.example.cuisine_api.RecetteFinal.RecetteWebservice
 import com.example.cuisine_api.RecetteFinal.Recette
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recette.view.*
