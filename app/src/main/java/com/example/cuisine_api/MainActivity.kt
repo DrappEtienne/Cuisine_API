@@ -6,8 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.cuisine_api.RecetteFinal.RecetteFragment
+
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.recette.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,8 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val cards = 10
-        for (cardIndex in 1..cards) {
+        val recipe = 10
+        for (recipeIndex in 1..recipe) {
             val fragment = RecetteFragment()
             supportFragmentManager.beginTransaction().add(
                 flexbox.id, fragment
