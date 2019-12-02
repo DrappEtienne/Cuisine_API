@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.cuisine_api.R
 import com.example.cuisine_api.RecetteFinal.RecetteWebservice
 import com.example.cuisine_api.RecetteFinal.Recette
+import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recette.view.*
 
@@ -32,20 +33,15 @@ class RecetteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val retrofit = Retrofit
-            .Builder()
-            .baseUrl("https://api.spoonacular.com/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        val retrofitService = retrofit.create(RecetteWebservice::class.java)
-        val recetteService = RecetteService(retrofitService)
 
-        recetteService.getRandomRecette(
-            { recette ->
-                 Picasso.get().load(recette.image).into(view.recetteImage)
-                 view.recetteName.text = recette.title
-            }, { error -> throw error }
-        )
+        val bundle = this.arguments
+        val recetteString = bundle!!.getString("recette")
+        val recette = Gson().fromJson(recetteString,Recette::class.java)
+
+        Picasso.get().load(recette.image).into(view.recetteImage)
+        view.recetteName.text = recette.title
+
+
     }
 
 }
