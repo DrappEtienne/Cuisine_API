@@ -9,8 +9,8 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.cuisine_api"
-        minSdkVersion 28
-        targetSdkVersion 29
+        minSdkVersion 24
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
