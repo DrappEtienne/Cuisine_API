@@ -27,7 +27,10 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(R.layout.page)
         var bundle :Bundle ?=intent.extras
         val id= bundle!!.getInt("recette_ID")
-        textView.text=id.toString()
+        val title= bundle!!.getString("recette_title")
+        val image= bundle!!.getString("recette_image")
+        textView.text=title.toString()
+        Picasso.get().load("https://spoonacular.com/recipeImages/"+image).into(fondImage)
     }
 }
 
