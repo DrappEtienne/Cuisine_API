@@ -13,9 +13,9 @@ class IngredientService(
                 call: Call<IngredientResponse>,
                 response: Response<IngredientResponse>
             ) {
-                val recetteResponse = response.body()
+                val ingredientResponse = response.body()
 
-                onDone(recetteResponse!!)
+                onDone(ingredientResponse!!)
             }
 
             override fun onFailure(call: Call<IngredientResponse>, t: Throwable) {

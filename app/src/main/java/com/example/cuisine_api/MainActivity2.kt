@@ -7,8 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.example.cuisine_api.IngredientRecette.IngredientWebservice
 import com.example.cuisine_api.RecetteFinal.RecetteFragment
-import com.example.cuisine_api.RecetteFinal.RecetteService
+import com.example.cuisine_api.IngredientRecette.*
 import com.example.cuisine_api.RecetteFinal.RecetteWebservice
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
@@ -31,6 +32,30 @@ class MainActivity2 : AppCompatActivity() {
         val image= bundle!!.getString("recette_image")
         textView.text=title.toString()
         Picasso.get().load("https://spoonacular.com/recipeImages/"+image).into(fondImage)
+        val idString=id.toString()
+        val retrofit = Retrofit
+            .Builder()
+            .baseUrl("https://api.spoonacular.com/recipes/"+idString+"/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val retrofitService = retrofit.create(IngredientWebservice::class.java)
+        val ingredientService = IngredientService(retrofitService)
+
+        ingredientService.getIngredient(
+            { ingredients ->
+                for(ingredient in ingredients.ingredients){
+                    val bundle = Bundle()
+                    val ingredientString = Gson().toJson(ingredient).toString()
+                    bundle.putString("ingredient", ingredientString)
+
+
+                    val fragment = IngredientFragment()
+                    fragment.arguments=bundle
+                    supportFragmentManager.beginTransaction().add(
+                        flexbox2.id, fragment
+                    ).commit()
+                }
+            }, { error -> throw error })
     }
 }
 

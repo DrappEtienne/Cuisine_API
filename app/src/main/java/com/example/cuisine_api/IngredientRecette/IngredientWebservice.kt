@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface IngredientWebservice {
 
-    @GET("recipes/".id."/ingredientWidget.json/?apiKey=f1abb0f0bbab4ec49567795017869ca6")
+    @GET("ingredientWidget.json/?apiKey=f1abb0f0bbab4ec49567795017869ca6")
     fun getIngredient(): Call<IngredientResponse>
 }

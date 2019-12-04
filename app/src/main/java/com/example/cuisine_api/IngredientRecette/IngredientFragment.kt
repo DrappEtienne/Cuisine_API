@@ -3,34 +3,41 @@ package com.example.cuisine_api.IngredientRecette
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.LayoutInflater
+import androidx.fragment.app.Fragment
 import com.example.cuisine_api.MainActivity2
+import com.example.cuisine_api.IngredientRecette.*
 import com.example.cuisine_api.R
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.page.view.*
+import android.view.ViewGroup
+import kotlinx.android.synthetic.main.ingredient.view.*
 
-class IngredientFragment : Ingredient() {
+
+class IngredientFragment : Fragment() {
     companion object {
         fun newInstance() = IngredientFragment()
     }
-    override fun onCreateView2(inflater: LayoutInflater,
+    override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val view = inflater?.inflate(R.layout.page, container, false)
+        val view = inflater?.inflate(R.layout.ingredient, container, false)
         return view
     }
-    override fun onCreate2(savedInstanceState: Bundle?) {
-        super.onCreate2(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
     }
 
-    override fun onViewCreated2(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated2(view, savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val bundle = this.arguments
-        val recetteString = bundle!!.getString("ingredient")
-        val ingredient = Gson().fromJson(ingredientstring,Ingredient::class.java)
-        view.ingredientName2.text = ingredient.name
+        val ingredientString = bundle!!.getString("ingredient")
+        val ingredient = Gson().fromJson(ingredientString,Ingredient::class.java)
+        view.textView2.text = ingredient.name
 
     }
+}
