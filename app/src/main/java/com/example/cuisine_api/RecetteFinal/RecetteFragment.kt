@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.cuisine_api.MainActivity
 import com.example.cuisine_api.R
+import com.example.cuisine_api.MainActivity2
 import com.example.cuisine_api.RecetteFinal.RecetteWebservice
 import com.example.cuisine_api.RecetteFinal.Recette
 import com.google.gson.Gson
@@ -50,8 +51,9 @@ class RecetteFragment : Fragment() {
 
         card.setOnClickListener{
             //val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://google.com"))
-            val changementPage = Intent(Intent.ACTION_VIEW, )
-            startActivity(browserIntent)
+            val intent = Intent(this.context, MainActivity2::class.java)
+
+            startActivity(intent)
 
         }
 
