@@ -1,19 +1,26 @@
 package com.example.cuisine_api.RecetteFinal
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.cuisine_api.MainActivity
 import com.example.cuisine_api.R
 import com.example.cuisine_api.RecetteFinal.RecetteWebservice
 import com.example.cuisine_api.RecetteFinal.Recette
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
+import android.net.Uri
+import kotlinx.android.synthetic.main.recette.*
 import kotlinx.android.synthetic.main.recette.view.*
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
+import retrofit2.http.Url
+
 
 class RecetteFragment : Fragment() {
     companion object {
@@ -40,6 +47,13 @@ class RecetteFragment : Fragment() {
 
         Picasso.get().load("https://spoonacular.com/recipeImages/"+recette.image).into(view.recetteImage)
         view.recetteName.text = recette.title
+
+        card.setOnClickListener{
+            //val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://google.com"))
+            val changementPage = Intent(Intent.ACTION_VIEW, )
+            startActivity(browserIntent)
+
+        }
 
 
     }
