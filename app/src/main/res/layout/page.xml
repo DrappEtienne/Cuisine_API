@@ -1,11 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f5f5f0"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:background="#f5f5f0"
+        style="@style/Widget.MaterialComponents.CardView"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Page de recette " />
-</LinearLayout>
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTitle"
+            android:background="#f5f5f0"
+            style="@style/Widget.MaterialComponents.CardView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:background="#f5f5f0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Page de recette"
+                android:textAlignment="center" />
+        </com.google.android.material.card.MaterialCardView>
+
+         <ImageView
+             android:id="@+id/fondImage"
+             android:background="#f5f5f0"
+             android:layout_width="match_parent"
+             android:layout_height="173dp"
+             app:srcCompat="?attr/actionModeBackground" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardIngredients"
+        android:background="#f5f5f0"
+        style="@style/Widget.MaterialComponents.CardView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="208dp"
+        android:layout_marginRight="8dp">
+        <TextView
+            android:id="@+id/textIngre"
+            android:background="#f5f5f0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingrédients"
+            android:textAlignment="center" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardtitreIngre"
+        android:background="#f5f5f0"
+        style="@style/Widget.MaterialComponents.CardView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="208dp"
+        android:layout_marginRight="8dp">
+
+    </com.google.android.material.card.MaterialCardView>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardRecette"
+        android:background="#f5f5f0"
+        style="@style/Widget.MaterialComponents.CardView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="458dp"
+        android:text="Recette"
+        android:layout_marginRight="8dp">
+        <TextView
+            android:id="@+id/textRecette"
+            android:background="#f5f5f0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recette"
+            android:textAlignment="center" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:background="#f5f5f0"
+            android:id="@+id/cardtitreRecette"
+            style="@style/Widget.MaterialComponents.CardView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Recette"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="208dp"
+            android:layout_marginRight="8dp">
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</FrameLayout>
