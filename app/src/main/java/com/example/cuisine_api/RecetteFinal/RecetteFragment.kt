@@ -52,6 +52,7 @@ class RecetteFragment : Fragment() {
         card.setOnClickListener{
             //val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://google.com"))
             val intent = Intent(this.context, MainActivity2::class.java)
+            intent.putExtra("recette_ID",recette.id)
 
             startActivity(intent)
 
