@@ -54,6 +54,7 @@ class RecetteFragment : Fragment() {
             val intent = Intent(this.context, MainActivity2::class.java)
             intent.putExtra("recette_ID",recette.id)
             intent.putExtra("recette_title",recette.title)
+            intent.putExtra("recette_serving",recette.servings)
             intent.putExtra("recette_image",recette.image)
 
             startActivity(intent)

@@ -29,8 +29,10 @@ class MainActivity2 : AppCompatActivity() {
         var bundle :Bundle ?=intent.extras
         val id= bundle!!.getInt("recette_ID")
         val title= bundle!!.getString("recette_title")
+        val serving= bundle!!.getString("recette_serving")
         val image= bundle!!.getString("recette_image")
         textView.text=title.toString()
+        textView.text=serving.toString()
         Picasso.get().load("https://spoonacular.com/recipeImages/"+image).into(fondImage)
         val idString=id.toString()
         val retrofit = Retrofit
