@@ -12,6 +12,7 @@
         android:layout_height="match_parent">
     <com.google.android.flexbox.FlexboxLayout
         android:id="@+id/flexbox"
+
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         app:flexWrap="wrap"
